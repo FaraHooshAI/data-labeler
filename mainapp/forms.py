@@ -15,11 +15,8 @@ class DataRow(forms.ModelForm):
     )
     class Meta:
         model = DataText
-        exclude = ['deleted']
-        
-    # def __init__(self, *args, **kwargs):
-    #         super(DataRow, self).__init__(*args, **kwargs)
-    #         self.fields['emotion_primary'].widget = forms.RadioSelect
+        fields = '__all__'
+
 
 
     
