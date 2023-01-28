@@ -8,15 +8,21 @@ class User(models.Model):
 class EmotionText(models.Model):
     emotion_name = models.CharField(max_length=50, unique=True)
 
+    def __str__(self):
+        return f"{self.emotion_name}"
+
 class DataName(models.Model):
     data_name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return f"{self.data_name}"
 
 class DataText(models.Model):
     data_name = models.ForeignKey(DataName, on_delete=models.CASCADE)
     text = models.TextField()
     emotion_primary = models.ForeignKey(EmotionText, on_delete=models.DO_NOTHING, null=True, blank=True, related_name='primary')
     emotion_secondary = models.ManyToManyField(EmotionText, blank=True, related_name='secondary')
-    deleted = models.BooleanField(default=True)
+    deleted = models.BooleanField(default=False)
     class Meta:
         verbose_name_plural = "Data"
 

@@ -9,7 +9,13 @@ class DataNameAdmin(admin.ModelAdmin):
     list_display = ['data_name']
 
 class DataTextAdmin(admin.ModelAdmin):
-    list_display = ['data_name', 'text', 'emotion_primary', 'emotion_secondary']
+    list_display = ['data_name', 'text', 'emotion_primary']
 
 class EmotionTextAdmin(admin.ModelAdmin):
     list_display = ['emotion_name']
+
+
+admin.site.register(User, UserAdmin)
+admin.site.register(DataName, DataNameAdmin)
+admin.site.register(DataText, DataTextAdmin)
+admin.site.register(EmotionText, EmotionTextAdmin)
