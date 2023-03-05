@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import F
 
 class User(models.Model):
     user_name = models.CharField(max_length=50, unique= True)
@@ -25,5 +26,6 @@ class DataText(models.Model):
     deleted = models.BooleanField(default=False)
     class Meta:
         verbose_name_plural = "Data"
+        #ordering = [F('emotion_primary').asc(nulls_last=True)]
 
 
